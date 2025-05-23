@@ -54,6 +54,5 @@ jobs:
         with:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           slot-name: 'Production'
-          package: ./bin/Release/net8.0/**/*
+          package: ./
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          no-auth: true
