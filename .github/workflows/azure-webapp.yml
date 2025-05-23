@@ -22,16 +22,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore
-        working-directory: MyMvcApp-Contact-Database-Application
+        run: dotnet restore MyMvcApp-Contact-Database-Application/MyMvcApp.csproj
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore
-        working-directory: MyMvcApp-Contact-Database-Application
+        run: dotnet build MyMvcApp-Contact-Database-Application/MyMvcApp.csproj --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish -c Release -o ./bin/Release/net8.0/MyMvcApp
-        working-directory: MyMvcApp-Contact-Database-Application
+        run: dotnet publish MyMvcApp-Contact-Database-Application/MyMvcApp.csproj -c Release -o ./MyMvcApp-Contact-Database-Application/bin/Release/net8.0/MyMvcApp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
